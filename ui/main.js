@@ -3,7 +3,7 @@ button.onclick = function (){
     
     var request = new XMLHttpRequest();
     
-    request.onreadystatechange = fuction () {
+    request.onreadystatechange = function () {
       if (request.readystate === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 var counter = request.responseText;
@@ -11,7 +11,7 @@ button.onclick = function (){
                 span.innerHTML = counter.toString();
             }
          } 
-     };
+     }
      
      request.open ('GET','http://swaminamasyu82.imad.hasura-app.io/counter',true);
      request.send (null);
