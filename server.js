@@ -5,12 +5,62 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var artione = {
+    title:'Arti-one | Swami Namaysu',
+    heading:'Article One',
+    date:'Aug 8, 2017',
+    content:`   <p>
+                    This is the content for my first article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
+                </p>
+                <p>
+                    This is the content for my first article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
+                </p>
+                <p>
+                    This is the content for my first article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
+                </p>`
+};
+
+function createTemplate (data) {
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var content = data.content;
+    
+    var htmltemplate = 
+        `<html>
+        <head>
+            <title>${title}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        <body>
+            <div class=container>
+                <div>
+                    <a href="/">Home</a>
+                </div>  
+                <hr/>
+                <h3>
+                    ${heading}
+                </h3>
+                <div>
+                    ${date}
+                </div>
+                <div>
+                    ${content}
+                </div>
+            </div>
+        </body>
+    </html>
+    `;
+    return htmltemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/arti-one', function (req, res) {
- res.sendFile(path.join(__dirname, 'ui', 'arti-one.html'));
+ res.send (createTemplate(artione));
 });
 
 app.get('/arti-two', function (req, res) {
