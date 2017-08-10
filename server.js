@@ -6,10 +6,10 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = { 
-    'arti-one' : {
-    title:'Arti-one | Swami Namaysu',
+    'article-one' : {
+    title:'Article-one | Swami Namaysu',
     heading:'Article One',
-    date:'Aug 8, 2017',
+    date:'Aug 11, 2017',
     content:`   <p>
                     This is the content for my first article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
                 </p>
@@ -20,10 +20,10 @@ var articles = {
                     This is the content for my first article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
                 </p>`
 },
-    'arti-two' : {
-    title:'Arti-Two | Swami Namaysu',
+    'article-two' : {
+    title:'Article-Two | Swami Namaysu',
     heading:'Article Two',
-    date:'Aug 9, 2017',
+    date:'Aug 12, 2017',
     content:`   <p>
                     This is the content for my Second article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
                 </p>
@@ -34,10 +34,10 @@ var articles = {
                     This is the content for my Second article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
                 </p>`
 },
-    'arti-three' : {
-    title:'Arti-Three | Swami Namaysu',
+    'article-three' : {
+    title:'Article-Three | Swami Namaysu',
     heading:'Article Three',
-    date:'Aug 10, 2017',
+    date:'Aug 13, 2017',
     content:`   <p>
                     This is the content for my third article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
                 </p>
@@ -89,9 +89,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var artiname = req.param.artiname;
-app.get('/:artiname', function (req, res) {
- res.send (createTemplate(articles[artiname]));
+var articlename = req.params.articlename;
+app.get('/:articlename', function (req, res) {
+ res.send (createTemplate(articles[articlename]));
 });
 
 app.get('/ui/style.css', function (req, res) {
