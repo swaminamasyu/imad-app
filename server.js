@@ -47,7 +47,7 @@ var articles = {
                 <p>
                     This is the content for my third article. Ha ha.The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. The quick brown for jumps over the lazy dog. 
                 </p>`
-};
+}
 };
 
 function createTemplate (data) {
